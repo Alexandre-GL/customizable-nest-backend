@@ -1,11 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { BaseModule } from 'base/base';
-import { MessagingServiceCustom } from './messaging/messaging.service';
+import { MessagingModuleCustom } from './messaging/messaging.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(
     BaseModule.forRoot({
-      messagingService: MessagingServiceCustom,
+      modules: {
+        messaging: {
+          module: MessagingModuleCustom,
+          path: 'messaging',
+        },
+      },
     }),
   );
   await app.listen(3000);

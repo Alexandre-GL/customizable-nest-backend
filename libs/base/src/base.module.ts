@@ -1,6 +1,5 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
 import { RouterModule } from '@nestjs/core';
-import { MessagingModule } from './messaging/messaging.module';
 import { Modules, modules } from './modules';
 
 @Global()
